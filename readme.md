@@ -14,7 +14,7 @@ To install Safe, follow these steps:
 .. code-block:: bash
 
     git clone https://github.com/1darshanpatil/locker
-    cd safe
+    cd locker
 
 2. **Compile the Program**:
    Use the provided Makefile to compile the program:
