@@ -27,7 +27,8 @@ void view_file() {
     snprintf(command, sizeof(command), "cat %s.dec", filename);
     system(command);
 
-    snprintf(command, sizeof(command), "rm %s.dec", filename);
+//    snprintf(command, sizeof(command), "rm %s.dec", filename);
+    snprintf(command, sizeof(command), "shred -u %s.dec", filename);
     system(command);
 
     printf("File viewed and decrypted file removed.\n");
