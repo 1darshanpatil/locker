@@ -7,11 +7,23 @@
 #define MAX_FILENAME_LENGTH 256
 #define MAX_COMMAND_LENGTH 1024
 
+/**
+ * Checks if a file exists on the filesystem.
+ * 
+ * @param filename The name of the file to check.
+ * @return Returns 1 if the file exists, 0 otherwise.
+ */
 int file_exists(const char *filename) {
     struct stat buffer;
     return (stat(filename, &buffer) == 0);
 }
 
+/**
+ * Encrypts a file with AES-256-CBC encryption using OpenSSL and removes the original file.
+ * 
+ * @param filename The name of the file to encrypt.
+ * @param password The password used for encryption.
+ */
 void encrypt_file(const char *filename, const char *password) {
     char encrypted_filename[MAX_FILENAME_LENGTH + 100];
     const char *homeDir = getenv("HOME");
@@ -27,6 +39,10 @@ void encrypt_file(const char *filename, const char *password) {
     printf("File encrypted and original file removed: %s\n", encrypted_filename);
 }
 
+/**
+ * Interacts with the user to specify a file for encryption and a password,
+ * and handles the encryption process.
+ */
 void add_user() {
     char filename[MAX_FILENAME_LENGTH];
     char password[50];
@@ -52,4 +68,3 @@ void add_user() {
 
     encrypt_file(filename, password);
 }
-
